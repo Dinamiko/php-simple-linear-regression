@@ -1,0 +1,13 @@
+{
+    "name": "dinamiko/php-simple-linear-regression",
+    "require": {
+        "php": "^7.2",
+        "php-ai/php-ml": "dev-master",
+        "symfony/console": "^4.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dinamiko\\SimpleLineaRegression\\": "src"
+        }
+    }
+}
