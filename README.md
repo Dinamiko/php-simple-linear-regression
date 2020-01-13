@@ -39,13 +39,6 @@ $regression->predict([64])
 $error = Regression::meanAbsoluteError($testTargets, $predictedTargets);
 ```
 
-### Normalization
-[Normalization](https://php-ml.readthedocs.io/en/latest/machine-learning/preprocessing/normalization/)
-```
-$normalizer = new Normalizer();
-$normalizer->preprocess($samples);
-```
-
 ### Persistency
 [Persistency](https://php-ml.readthedocs.io/en/latest/machine-learning/model-manager/persistency/)
 ```

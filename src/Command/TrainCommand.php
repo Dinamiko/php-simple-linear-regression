@@ -12,6 +12,7 @@ use Phpml\Regression\LeastSquares;
 use Phpml\Regression\SVR;
 use Phpml\SupportVectorMachine\Kernel;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -20,12 +21,14 @@ class TrainCommand extends Command
     protected function configure()
     {
         $this->setName('train')
-            ->setDescription('Train ML model');
+            ->setDescription('Train ML model')
+            ->addArgument('filepath', InputArgument::REQUIRED, 'Path to the file')
+            ->addArgument('features', InputArgument::REQUIRED, 'Number of features');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $dataset = new CsvDataset(__DIR__ . '/../../data/advertising.csv', 3);
+        $dataset = new CsvDataset($input->getArgument('filepath'), (int)$input->getArgument('features'));
         $randomSplit = new RandomSplit($dataset, 0.3, 1234);
 
         $regression = new LeastSquares();
