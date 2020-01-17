@@ -1,51 +1,17 @@
 # Simple Linear Regression
-...
+This is the companion code for TODO: PUT ARTICLE LINK HERE
 
-### Load Data From CSV
-[CsvDataset](https://php-ml.readthedocs.io/en/latest/machine-learning/datasets/csv-dataset/)
+### Install
 ```
-$dataset = new CsvDataset('dataset.csv', 2, true);
-```
-
-### Train and Test Data Split
-[Random Split](https://php-ml.readthedocs.io/en/latest/machine-learning/cross-validation/random-split/)
-```
-$dataset = new RandomSplit($dataset, 0.3, 1234);
-
-// train group
-$dataset->getTrainSamples();
-$dataset->getTrainLabels();
-
-// test group
-$dataset->getTestSamples();
-$dataset->getTestLabels();
+$ composer install
 ```
 
-### Train and Predict
+### Train Command
 ```
-$samples = [[60], [61], [62], [63], [65]];
-$targets = [3.1, 3.6, 3.8, 4, 4.1];
-
-$regression = new SVR(Kernel::LINEAR);
-$regression->train($samples, $targets);
-
-$regression->predict([64])
-// return 4.03
-
+$ php bin/console train data/advertising.csv 3
 ```
 
-### Error
+### Predict Command
 ```
-$error = Regression::meanAbsoluteError($testTargets, $predictedTargets);
-```
-
-### Persistency
-[Persistency](https://php-ml.readthedocs.io/en/latest/machine-learning/model-manager/persistency/)
-```
-$filepath = '/path/to/store/the/model';
-$modelManager = new ModelManager();
-$modelManager->saveToFile($classifier, $filepath);
-
-$restoredClassifier = $modelManager->restoreFromFile($filepath);
-$restoredClassifier->predict([3, 2]);
+$ php bin/console predict 10,20,30
 ```
