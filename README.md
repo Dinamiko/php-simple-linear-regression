@@ -1,5 +1,5 @@
 # Simple Linear Regression
-This is the companion code for TODO: PUT ARTICLE LINK HERE
+This is the companion code for (Inpsyde Intro to machine learning article)[https://inpsyde.com/en/introduction-machine-learning-php/]
 
 ### Install
 ```
